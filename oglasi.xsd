@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="https://www.w3schools.com"
+elementFormDefault="qualified">
+    <xs:element name="oglasi">
+        <xs:complexType mixed="true">
+            <xs:element name="oglas">
+            <xs:complexType mixed="true">
+                <xs:sequence>
+                <xs:element name="kategorija" type="xs:string">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                        <xs:enumeration value="automobili"/>
+                        <xs:enumeration value="stanovi"/>
+                        <xs:enumeration value="alati"/>
+                        <xs:enumeration value="poducavanje"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="datum_isteka_oglasa" type="xs:string"/>
+                <xs:element name="dan">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"/>
+                        <xs:maxInclusive value="31"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="mesec">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"/>
+                        <xs:maxInclusive value="12"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="godina" type="xs:integer"/>
+                <xs:element name="cena" type="xs:positiveInteger">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:positiveInteger">
+                        <xs:pattern value="[0-9][0-9][0-9][0-9][0-9]"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="tekst_oglasa" type="xs:string">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                        <xs:minLength value="10"/>
+                        <xs:maxLength value="180"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="oznaka_oglasa" type="xs:string"/>
+                <xs:element name="e_posta" type="xs:string">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                        <xs:pattern value="[^@]+@[^\.]+\..+"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:element>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE oglas SYSTEM "oglasi.dtd">
+<oglasi xmlns="https://www.w3schools.com" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="https://www.w3schools.com/xml oglasi.xsd">
+    <oglas>
+        <kategorija>
+            <automobili></automobili>
+            <stanovi></stanovi>
+            <alati></alati>
+            <poducavanje></poducavanje>
+        </kategorija>
+        <datum_isteka_oglasa>
+            <dan></dan>
+            <mesec></mesec>
+            <godina></godina>
+        </datum_isteka_oglasa>
+        <cena valuta="dinar"></cena> 
+        <tekst_oglasa> 
+
+        </tekst_oglasa>
+        <oznaka_oglasa> </oznaka_oglasa>
+        <e_posta> </e_posta>
+    </oglas> 
+</oglasi>  

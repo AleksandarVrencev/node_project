@@ -1,0 +1,57 @@
+<script>
+    var adresa = document.getElementsByName('id').value;  
+    var naslov = document.getElementById('naslov').innerText;
+</script>
+<h1 class="text-center mb-3">Oglasna tabla</h1>
+<form action="/api/members" method="POST" class="mb-4">
+    <div class="form-group">
+        <label for="name">Naslov oglasa</label>
+        <input type="text" name="name" class="form-control">
+    </div>
+        <div class="form-group">
+        <label for="email">Email adresa</label>
+        <input type="email" name="email" class="form-control">
+    </div>
+    {{!-- novo --}}
+    <p>Kategorija oglasa</p>
+        <!-- kategorije -->
+        <select name="kategorija">
+            <option name="automobili">automobili</option>
+            <option name="stanovi">stanovi</option>
+            <option name="alati">alati</option>
+            <option name="poducavanje">poducavanje</option>
+        </select><br>
+        <!-- tekst oglasa -->
+        <textarea name="tekst" rows="10" cols="30"></textarea><br>
+        <!-- cena -->
+        <label>cena:</label>
+        <input type="number" name="cena" min="1" max="9999">
+        <!-- valuta -->
+        <select name="valuta">
+            <option name="din">din</option>
+            <option name="eur">eur</option>
+            <option name="usd">usd</option>
+        </select><br>
+        <!-- datum -->
+        <label>datum isteka oglasa:</label>
+        <input type="date" name="datum"><br>
+        <!-- tagovi -->
+        <label>oznake(tagovi) oglasa:</label><br>
+        <input type="text" name="tagovi"><br>
+        <!-- email -->
+        <input type="submit" value="Dodaj oglas" class="btn btn-primary btn-block">
+</form>
+<h4>Oglasi</h4>
+<ul class="list-group">
+    {{#each members}}
+        <li class="list-group-item">{{this.id}}: {{this.name}}: {{this.email}}: {{this.kategorija}}: {{this.text}}: {{this.cena}}: {{this.valuta}}: {{this.datum}}: {{this.tagovi}}</li>
+    {{/each}}
+</ul>
+
+<a id='api' href="/api/members" class="btn btn-danger mt-4">Svi oglasi/JSON format</a>
+<form action="/api/members" method="GET" class="mb-4">
+    <label for="id">Pretrazi preko ID</label>
+    <input type="text" name="id" id="id" class="form-control">
+    <a id='api' href="/api/members/" onclick="location.href=this.href+document.getElementById('id').value;return false;" class="btn btn-danger mt-4">Pretrazi</a>
+</form>
+
